@@ -1,1 +1,1 @@
-# Yuusan,
+System.out.println("こんにちは"）
