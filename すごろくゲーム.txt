@@ -1,0 +1,109 @@
+import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("☆すごろく☆  開始");
+         //「名前を入力してください」と表示
+         System.out.println("名前を入力してください");
+         String name=new java.util.Scanner(System.in).nextLine();
+        //「名前さんこんにちは！これからすごろくを始めます」と表示する
+        System.out.println(name+"さん　こんにちは!");
+        System.out.println("これからすごろくをはじめます");
+         //「はじめる」と表示してエンターを押すのを待つ
+        System.out.println("エンターを押してはじめる");
+        Scanner scan = new Scanner(System.in);
+        scan.nextLine();
+        int dicenumber= new java.util.Random().nextInt(6)+1;
+        System.out.println(dicenumber+"！");
+        //進んだ位置を
+        int location = 0;
+        location+=dicenumber;
+        //進んだ位置を「～マス目に進みました」と表示する
+        System.out.println(location+"マス目に進みました");
+        while (location<30) {//ゴールしたかどうか
+        System.out.println("次に進む（エンターを押す）");
+        scanner.nextLine();
+        //サイコロを振って「～！」と表示する
+        dicenumber= new java.util.Random().nextInt(6)+1;
+        System.out.println(dicenumber+"！");
+        //進んだ位置を
+        location+=dicenumber;
+        //進んだ位置を「～マス目に進みました」と表示する
+        System.out.println(location+"マス目に進みました");
+        if(location==3){
+            //3マス目に止まった場合
+            //「橋にとまりました」と表示する
+            System.out.println("橋に止まりました。");
+            //「２マス進みます」と表示する
+             System.out.println("2マス進みます。");
+            //進んだ位置を「～マス目に進みました。」と表示する
+            location+=2;
+             System.out.println(location+"マス目に進みました。");
+            }else if(location==8){
+            //８マス目に止まった場合
+            //「川に落ちました」と表示する
+             System.out.println("川に落ちました。");
+            //「３マスもどります」と表示する
+             System.out.println("3マス戻ります。");
+             location-=3;
+            //進んだ位置を「～マス目に進みました。」と表示する
+            System.out.println(location+"マス目に進みました。");
+           }else if(location==10){
+            //10マス目に止まった場合
+            //「船を発見しました」と表示する
+             System.out.println("船を発見しました");
+            System.out.println("4マス進みます");
+            //進んだ位置を「～マス目に進みました。」と表示する
+            location+=4;
+            System.out.println(location+"マス目に進みました。");
+           }else if(location==14){
+            //１４マス目に止まった場合
+            //「蛇がでました」と表示する
+             System.out.println("蛇がでました。");
+            //「２マスもどります」と表示する
+             System.out.println("2マス戻ります。");
+             location-=2;
+            //進んだ位置を「～マス目に進みました。」と表示する
+            System.out.println(location+"マス目に進みました。");
+           }else if(location==18){
+            //１８マス目に止まった場合
+            //「穴に落ちました」と表示する
+             System.out.println("穴に落ちました");
+            //「スタートに戻りました。」と表示する
+             System.out.println("スタートに戻りました。");
+             location=0;
+           }else if(location==25){
+            //２５マス目に止まった場合
+            //「さいころを回し、6以上なら5マス進み、６未満なら１マスもどります」と表示する
+             System.out.println("サイコロを振ります");
+              System.out.println("6以上なら5マス進み、6未満なら5マスもどります。");
+              int dice=new java.util.Random().nextInt(6)+1;
+              System.out.println(dice+"がでました。");
+              if(dice==6){
+                  System.out.println("5マス進みます。");
+                  location+=5;
+                   //進んだ位置を「～マス目に進みました。」と表示する
+                   System.out.println(location+"マス目に進みました。");
+              }else if(dice!=6){
+                  System.out.println("5マス戻ります");
+                  location-=5;
+                  System.out.println(location+"マス目に進みました。");
+              }
+              }
+           }        
+        if(location==30){
+            //30マス目に止まったら「ゴールしました！！！」と表示する
+            System.out.println(location+"ゴールしました！！！");
+            //ゴール出来なかったとき
+            }else {
+                System.out.println("ゴールできませんでした。😢");
+            }
+            //すごろく終了と表示する
+            System.out.println("☆すごろく☆　　終了！");
+    }
+}
+
+      
